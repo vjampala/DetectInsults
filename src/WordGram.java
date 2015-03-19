@@ -20,7 +20,11 @@ public class WordGram {
 	}
 	
 	public double getLogProbabilityOfInsult(String test, double weight) {
-		return weight * model.probabilidade(test);
+		return weight * model.probability(test);
+	}
+	
+	public double test1(String s) {
+		return model.freq(s);
 	}
 
 }

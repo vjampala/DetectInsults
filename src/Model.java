@@ -1,5 +1,12 @@
+import hultig.sumo.HNgram;
+
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.util.AttributeSource;
 
 public class Model {
 	private static final double UNIGRAM_WEIGHT = 0.33;
@@ -15,12 +22,19 @@ public class Model {
 	private static final String TRAINING_FILE = ""; // TODO
 	private static final String TEST_FILE = ""; // TODO
 	
+	/*
+	 * Final result
+	 */
 	public static void main(String[] args) {
 		List<Integer> labels = new ArrayList<Integer>();
 		List<String> trainingExamples = readExamples(TRAINING_FILE, null); // TODO
 		List<String> testExamples = readExamples(TEST_FILE, labels);
-		List<Double> scores = computeScores(trainingExamples, testExamples);
-		printAccuracy(scores, labels);
+		Stemmer s = new Stemmer();
+		//List<Double> scores = computeScores(trainingExamples, testExamples);
+		//printAccuracy(scores, labels);
+		
+		//WordGram unigram = new WordGram(3, "test.txt");
+		//System.out.println(unigram.getLogProbabilityOfInsult("n n hi there", 1));
 	}
 	
 	private static List<String> readExamples(String filename, List<Integer> labels) {
@@ -29,7 +43,7 @@ public class Model {
 	}
 	
 	// TODO logs?
-	private static List<Double> computeScores(List<String> trainingExamples, List<String> testExamples) {
+	/*private static List<Double> computeScores(List<String> trainingExamples, List<String> testExamples) {
 		List<Double> scores = new WordGram(1, UNIGRAM_FILE).getLogProbabilityOfInsult(testExamples, UNIGRAM_WEIGHT);
 		WordGram bigram = new WordGram(2, BIGRAM_FILE);
 		WordGram trigram = new WordGram(2, TRIGRAM_FILE);
@@ -49,7 +63,7 @@ public class Model {
 			scores.set(i, scores.get(i) + gram46.getLogProbabilityOfInsult(testExamples.get(i), CHARGRAM_46_WEIGHT));
 		}
 		return scores;
-	}
+	}*/
 	
 	private static void printAccuracy(List<Double> scores, List<Integer> labels) {
 		double count = 0;

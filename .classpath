@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lucene-snowball-3.0.3.jar"/>
 	<classpathentry kind="lib" path="hultiglib.jar"/>
-	<classpathentry kind="lib" path="balie-1.81.jar"/>
 	<classpathentry kind="lib" path="lucene-analyzers-3.5.0.jar"/>
 	<classpathentry kind="lib" path="lucene-core-3.0.1.jar"/>
+	<classpathentry kind="lib" path="weka.jar"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
